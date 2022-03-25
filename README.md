@@ -1,3 +1,4 @@
+install: pip install key-changer
 # en-th-keyboard-translator
 translate character en-th
 # change key th/en  
