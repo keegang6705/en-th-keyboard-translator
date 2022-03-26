@@ -14,6 +14,7 @@ input_text  = 0
 a= tk.StringVar(window)
 a.set("auto")
 def _onKeyRelease(event):
+  try:
     ctrl  = (event.state & 0x4) != 0
     if event.keycode==88 and  ctrl and event.keysym.lower() != "x": 
         event.widget.event_generate("<<Cut>>")
@@ -23,6 +24,8 @@ def _onKeyRelease(event):
 
     if event.keycode==67 and  ctrl and event.keysym.lower() != "c":
         event.widget.event_generate("<<Copy>>")
+  except:
+    pass
 def set_text(entry,text):
     entry.delete(0,tk.END)
     entry.insert(0,text)
@@ -75,9 +78,12 @@ dont_know = tk.Label(master=window,text="replace unknow char with",foreground="#
 dont_know.grid(row= 2 ,column=3,pady=5)
 
 dont_know = tk.Entry(master=window,font=('Arial', 12))
-dont_know.insert(0,"[x]")
+dont_know.insert(0,"[?]")
 dont_know.grid(row= 3 ,column=3,pady=10)
 
-window.attributes('-topmost',True)
-window.mainloop()
-window.bind_all("<Key>", _onKeyRelease, "+")
+try:
+  window.attributes('-topmost',True)
+  window.mainloop()
+  window.bind_all("<Key>", _onKeyRelease, "+")
+except:
+  pass
