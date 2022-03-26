@@ -13,6 +13,12 @@ window.configure(background="#363940")
 input_text  = 0
 a= tk.StringVar(window)
 a.set("auto")
+
+def cop():
+  window.clipboard_clear()
+  window.clipboard_append(outputt.get())
+  window.update()
+
 def _onKeyRelease(event):
   try:
     ctrl  = (event.state & 0x4) != 0
@@ -26,10 +32,12 @@ def _onKeyRelease(event):
         event.widget.event_generate("<<Copy>>")
   except:
     pass
+
 def set_text(entry,text):
     entry.delete(0,tk.END)
     entry.insert(0,text)
     return
+
 def show_output():
    try:
       inputt = input.get()
@@ -45,14 +53,14 @@ def show_output():
       else:
         raise ValueError('type not match')
       window.minsize(width=600, height=300)
-      set_text(output_label,output)
-      output_labell.configure(text=output,foreground="#ffffff",background="#363940",font=('Arial', 12))
+      set_text(outputt,output)
+      output_label.configure(text=output,foreground="#ffffff",background="#363940",font=('Arial', 12))
    except Exception as e:
     output = 'error'
     print(e)
     window.minsize(width=600, height=150)
-    set_text(output_label,e)
-    output_labell.configure(text=output,foreground="#ff0000",background="#363940",font=('Arial', 16))
+    set_text(outputt,e)
+    output_label.configure(text=output,foreground="#ff0000",background="#363940",font=('Arial', 16))
 
 
 title_label = tk.Label(master=window,text='text changer',foreground="#ffffff",background="#363940",font=('Arial', 14))
@@ -65,11 +73,14 @@ input.grid(row= 2,column=0,columnspan=3)
 ok_button = tk.Button(master=window, text='change',command=show_output,foreground="white",background="#353839",font=('Arial', 14))
 ok_button.grid(row= 3,column=2,pady=20)
 
-output_label = tk.Entry(master=window,foreground="#ffffff",background="#363940",font=('Arial', 12))
-output_label.grid(row= 4,column=0,columnspan=3,rowspan=3)
+outputt = tk.Entry(master=window,foreground="#ffffff",background="#363940",font=('Arial', 12))
+outputt.grid(row= 4,column=0,columnspan=3,rowspan=3)
 
-output_labell = tk.Label(master=window,foreground="#ffffff",background="#363940",font=('Arial', 12), wraplengt=400)
-output_labell.grid(row= 4,column=3,columnspan=3,rowspan=3)
+coppy_button = tk.Button(master=window, text='coppy to clipboard',command=cop,foreground="white",background="#353839",font=('Arial', 10))
+coppy_button.grid(row=4 ,column=3)
+
+output_label = tk.Label(master=window,foreground="#ffffff",background="#363940",font=('Arial', 12), wraplengt=400)
+output_label.grid(row= 5,column=3,columnspan=3,rowspan=3)
 
 option_menu = tk.OptionMenu(window, a, "auto", "switch", "th>en","en>th")
 option_menu.grid(row= 1 ,column=3)
