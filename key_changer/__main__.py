@@ -1,11 +1,10 @@
-# -*- encoding: utf-8 -*-
-
 if __name__ != "__main__":
     exit()
 
 from sys import argv
 import key_changer
 
+help_ = """python key_changer [en2th / th2en / auto / switch]"""
 argv_len = len(argv)
 
 if argv_len == 2:
@@ -18,6 +17,6 @@ if argv_len == 2:
     elif argv[1] == "switch":
         print(key_changer.switch(input(">")))
     else:
-        print("python key_changer [en2th / th2en / auto / switch]")
+        print(help_)
 else:
-    print("python key_changer [en2th / th2en / auto / switch]")
+    print(help_)
