@@ -1,11 +1,15 @@
 ## Translate text from character keyboard layout.
 
 - **key-changer - version 2.1**  
-GUI ready to use   
-[py  version 0.5](https://github.com/keegang6705/en-th-keyboard-translator/blob/main/python_ui/en-th_key_ui.py)  
-[exe version 0.5](https://github.com/keegang6705/en-th-keyboard-translator/blob/main/python_ui/key_trans_UI.exe)  
+
+**GUI ready to use**  
+- [py  version 0.5](https://github.com/keegang6705/en-th-keyboard-translator/blob/main/python_ui/en-th_key_ui.py)  
+- [exe version 0.5](https://github.com/keegang6705/en-th-keyboard-translator/blob/main/python_ui/key_trans_UI.exe)  
+
+---
+
 **มันคืออะไร อันนี้ก็ไม่แน่ใจเหมือนกัน**  
-> สรุปแบบเข้าใจง่ายๆคือ มันคือการตัวแปลงข้อความที่พิมพ์แบบปกติ แต่ดันลืมเปลี่ยน keboard layout มันเลยทำให้ข้อความออกมาแปลกๆ ซึ่ง package นี้จะมี function ที่ใช้แปลข้อความจาก keyboard layout หนึ่งไปอีก layout หนึ่ง  
+-  สรุปแบบเข้าใจง่ายๆคือ มันคือการตัวแปลงข้อความที่พิมพ์แบบปกติ แต่ดันลืมเปลี่ยน keboard layout มันเลยทำให้ข้อความออกมาแปลกๆ ซึ่ง package นี้จะมี function ที่ใช้แปลข้อความจาก keyboard layout หนึ่งไปอีก layout หนึ่ง  
 
 ---
 
