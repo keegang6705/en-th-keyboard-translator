@@ -13,6 +13,16 @@ window.configure(background="#363940")
 input_text  = 0
 a= tk.StringVar(window)
 a.set("auto")
+def _onKeyRelease(event):
+    ctrl  = (event.state & 0x4) != 0
+    if event.keycode==88 and  ctrl and event.keysym.lower() != "x": 
+        event.widget.event_generate("<<Cut>>")
+
+    if event.keycode==86 and  ctrl and event.keysym.lower() != "v": 
+        event.widget.event_generate("<<Paste>>")
+
+    if event.keycode==67 and  ctrl and event.keysym.lower() != "c":
+        event.widget.event_generate("<<Copy>>")
 def set_text(entry,text):
     entry.delete(0,tk.END)
     entry.insert(0,text)
@@ -33,13 +43,13 @@ def show_output():
         raise ValueError('type not match')
       window.minsize(width=600, height=300)
       set_text(output_label,output)
-      #output_label.configure(text=output,foreground="#ffffff",background="#363940",font=('Arial', 12))
+      output_labell.configure(text=output,foreground="#ffffff",background="#363940",font=('Arial', 12))
    except Exception as e:
     output = 'error'
     print(e)
     window.minsize(width=600, height=150)
     set_text(output_label,e)
-    #output_label.configure(text=output,foreground="#ff0000",background="#363940",font=('Arial', 16))
+    output_labell.configure(text=output,foreground="#ff0000",background="#363940",font=('Arial', 16))
 
 
 title_label = tk.Label(master=window,text='text changer',foreground="#ffffff",background="#363940",font=('Arial', 14))
@@ -55,10 +65,18 @@ ok_button.grid(row= 3,column=2,pady=20)
 output_label = tk.Entry(master=window,foreground="#ffffff",background="#363940",font=('Arial', 12))
 output_label.grid(row= 4,column=0,columnspan=3,rowspan=3)
 
+output_labell = tk.Label(master=window,foreground="#ffffff",background="#363940",font=('Arial', 12), wraplengt=400)
+output_labell.grid(row= 4,column=3,columnspan=3,rowspan=3)
+
 option_menu = tk.OptionMenu(window, a, "auto", "switch", "th>en","en>th")
 option_menu.grid(row= 1 ,column=3)
 
+dont_know = tk.Label(master=window,text="replace unknow char with",foreground="#ffffff",background="#363940",font=('Arial', 12))
+dont_know.grid(row= 2 ,column=3,pady=5)
+
 dont_know = tk.Entry(master=window,font=('Arial', 12))
-dont_know.insert(0,"[dont know character]")
-dont_know.grid(row= 2 ,column=3,pady=10)
+dont_know.insert(0,"[x]")
+dont_know.grid(row= 3 ,column=3,pady=10)
+
 window.mainloop()
+window.bind_all("<Key>", _onKeyRelease, "+")
