@@ -73,4 +73,3 @@ print(key_changer.auto("l;ylfu สบายดี", default = key_changer.EN2TH)
 | --- | --- | --- |
 key_changer.EN2TH | QWERTY layout | Thai Kedmanee keyboard layout 
 key_changer.TH2EN | Thai Kedmanee keyboard layout | QWERTY layout
-```
