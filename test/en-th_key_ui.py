@@ -78,5 +78,6 @@ dont_know = tk.Entry(master=window,font=('Arial', 12))
 dont_know.insert(0,"[x]")
 dont_know.grid(row= 3 ,column=3,pady=10)
 
+window.attributes('-topmost',True)
 window.mainloop()
 window.bind_all("<Key>", _onKeyRelease, "+")
