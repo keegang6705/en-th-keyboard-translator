@@ -52,9 +52,9 @@ print(key_changer.convert("l;ylfu", QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT))
 print(key_changer.convert(";yoso7j' Cyogfbowxshv'oYhkc]h;r[;jkoYhkw,jws]", QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT))
 # output : วันหนึ่ง ฉันเดินไปห้องนํ้าแล้วพบว่านํ้าไม่ไหล
 
-print(key_changer.convert("ทำ ฟืก เน ะน ฟืนะ้ำพ ิฟะ้พนนท", "Thai_Kedmanee", QWERTY_LAYOUT))
+print(key_changer.convert("ทำ ฟืก เน ะน ฟืนะ้ำพ ิฟะ้พนนท", THAI_KEDMANEE_LAYOUT, QWERTY_LAYOUT))
 # output : me and go to another bathroom
-print(key_changer.convert("ห้ระม ะ้ำ ไฟะำพ กนำหืงะ ดสนไ", "Thai_Kedmanee", QWERTY_LAYOUT))
+print(key_changer.convert("ห้ระม ะ้ำ ไฟะำพ กนำหืงะ ดสนไ", THAI_KEDMANEE_LAYOUT, QWERTY_LAYOUT))
 # output : shit, the water doesn't flow
 
 print(key_changer.auto("mew'fusojk wxshv'oYhkmujvnjodHwfh", QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT))

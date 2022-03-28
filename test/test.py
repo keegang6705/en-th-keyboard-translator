@@ -12,8 +12,8 @@ from key_changer import EN2TH, TH2EN, ANSI_KEYBOARD, QWERTY_LAYOUT, THAI_KEDMANE
 print(key_changer.convert("l;ylfu", QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT))
 print(key_changer.convert(";yoso7j' Cyogfbowxshv'oYhkc]h;r[;jkoYhkw,jws]", QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT))
 
-print(key_changer.convert("ทำ ฟืก เน ะน ฟืนะ้ำพ ิฟะ้พนนท", "Thai_Kedmanee", QWERTY_LAYOUT))
-print(key_changer.convert("ห้ระม ะ้ำ ไฟะำพ กนำหืงะ ดสนไ", "Thai_Kedmanee", QWERTY_LAYOUT))
+print(key_changer.convert("ทำ ฟืก เน ะน ฟืนะ้ำพ ิฟะ้พนนท", THAI_KEDMANEE_LAYOUT, QWERTY_LAYOUT))
+print(key_changer.convert("ห้ระม ะ้ำ ไฟะำพ กนำหืงะ ดสนไ", THAI_KEDMANEE_LAYOUT, QWERTY_LAYOUT))
 
 print(key_changer.auto("mew'fusojk wxshv'oYhkmujvnjodHwfh", QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT))
 print(key_changer.auto("ดีแาม ไ้ำพำ ฟพำ ร เนรืเ ืำปะ", QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT))
