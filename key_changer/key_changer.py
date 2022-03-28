@@ -1,56 +1,18 @@
 # -*- encoding: utf-8 -*-
 
-eng_layout = [
-    '`', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-    '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u',
-    'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f',
-    'g', 'h', 'j', 'k', 'l', ';', "'", 'z', 'x', 'c',
-    'v', 'b', 'n', 'm', ',', '.', '/', '~', '!', '@',
-    '#', '$', '%', '^', '&', '*', '(', ')', '_', '+',
-    'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
-    '{', '}', '|', 'A', 'S', 'D', 'F', 'G', 'H', 'J',
-    'K', 'L', ':', '"', 'Z', 'X', 'C', 'V', 'B', 'N',
-    'M', '<', '>', '?'
-]
-
-thai_layout = [
-    '_', 'ๅ', '/', '-', 'ภ', 'ถ', 'ุ', 'ึ', 'ค', 'ต',
-    'จ', 'ข', 'ช', 'ๆ', 'ไ', 'ำ', 'พ', 'ะ', 'ั', 'ี',
-    'ร', 'น', 'ย', 'บ', 'ล', 'ฃ', 'ฟ', 'ห', 'ก', 'ด',
-    'เ', '้', '่', 'า', 'ส', 'ว', 'ง', 'ผ', 'ป', 'แ',
-    'อ', 'ิ', 'ื', 'ท', 'ม', 'ใ', 'ฝ', '%', '+', '๑',
-    '๒', '๓', '๔', 'ู', '฿', '๕', '๖', '๗', '๘', '๙',
-    '๐', '\"', 'ฎ', 'ฑ', 'ธ', 'ํ', '๊', 'ณ', 'ฯ', 'ญ',
-    'ฐ', ',', 'ฅ', 'ฤ', 'ฆ', 'ฏ', 'โ', 'ฌ', '็', '๋',
-    'ษ', 'ศ', 'ซ', '.', '(', ')', 'ฉ', 'ฮ', 'ฺ', '์',
-    '?', 'ฒ', 'ฬ', 'ฦ'
-]
-thai_layout2 = [
-    '_', '=', '๒', '๓', '๔', '๕', 'ู', '๗', '๘', 
-    '๙', '๐', '๑', '๖', '็', 'ต', 'ย', 'อ', 'ร', '่', 
-    'ด', 'ม', 'ว', 'แ', 'ใ', 'ฌ', '้', 'ท', 'ง', 'ก', 'ั',
-     'ี', 'า', 'น', 'เ', 'ไ', 'ข', 'บ', 'ป', 'ล', 'ห', 'ิ', 
-    'ค', 'ส', 'ะ', 'จ', 'พ', '฿', '+', '"', '/', ',', '?',
-    'ุ', 'ๅ', '.', '(', ')', '-', '%', '๊', 'ฤ', 'ๆ', 'ญ',
-    'ษ', 'ึ', 'ฝ', 'ซ', 'ถ', 'ฒ', 'ฯ', 'ฦ', '๋', 'ธ', 'ำ', 
-    'ณ', '์', 'ื','ผ', 'ช', 'โ', 'ฆ', 'ฑ', 'ฎ', 'ฏ', 'ฐ',
-    'ภ', 'ั', '้', 'ศ', 'ฮ', 'ฟ', 'ฉ', 'ฬ'
-]
-
-EN2TH = 1
-TH2EN = 2
+from .keyboard_map import *
 
 len_range = range(94)
 th_unicode_range  = 3585, 3675
 en_unicode_range = 49, 126
 
-def convert(text, l1, l2, not_know = None):
+def convert(text, lang_layout, to_lang_layout, standard_key_layout = standard_key_layout_default, not_know = not_know_default):
     text_ = ""
     for char in text:
         not_found = True
         for i in len_range:
-            if char == l1[i]:
-                text_ += l2[i]
+            if char == keymap[standard_key_layout][lang_layout][i]:
+                text_ += keymap[standard_key_layout][to_lang_layout][i]
                 not_found = False
                 break
         if not_found == True:
@@ -60,13 +22,7 @@ def convert(text, l1, l2, not_know = None):
                 text_ += not_know
     return text_
 
-def en2th(text, not_know = None):
-    return convert(text, eng_layout, thai_layout, not_know)
-
-def th2en(text, not_know = None):
-    return convert(text, thai_layout, eng_layout, not_know)
-
-def auto(text, not_know = None, default = EN2TH):
+def auto(text, en_layout, th_layout, standard_key_layout = standard_key_layout_default, not_know = not_know_default, default = defualt_lang2lang):
     count_th = 0
     count_en = 0
     for char in text:
@@ -76,26 +32,28 @@ def auto(text, not_know = None, default = EN2TH):
         elif unicode >= th_unicode_range[0] and unicode <= th_unicode_range[1]:
             count_th += 1
     if count_en > count_th:
-        return convert(text, eng_layout, thai_layout, not_know)
-    elif count_en < count_th:
-        return convert(text, thai_layout, eng_layout, not_know)
+        return convert(text, en_layout, th_layout, standard_key_layout = standard_key_layout, not_know = not_know)
+    elif count_th > count_en:
+        return convert(text, th_layout, en_layout, standard_key_layout = standard_key_layout, not_know = not_know)
     else:
         if default == EN2TH:
-            return convert(text, eng_layout, thai_layout, not_know)
+            return convert(text, en_layout, th_layout, standard_key_layout = standard_key_layout, not_know = not_know)
         elif default == TH2EN:
-            return convert(text, eng_layout, thai_layout, not_know)
+            return convert(text, th_layout, en_layout, standard_key_layout = standard_key_layout, not_know = not_know)
+        else:
+            raise ValueError("Invalid default")
 
-def switch(text, not_know = None):
+def switch(text, lang_layout_1, lang_layout_2, standard_key_layout = standard_key_layout_default, not_know = not_know_default):
     text_ = ""
     for char in text:
         not_found = True
         for i in len_range:
-            if char == eng_layout[i]:
-                text_ += thai_layout[i]
+            if char == keymap[standard_key_layout][lang_layout_1][i]:
+                text_ += keymap[standard_key_layout][lang_layout_2][i]
                 not_found = False
                 break
-            elif char == thai_layout[i]:
-                text_ += eng_layout[i]
+            elif char == keymap[standard_key_layout][lang_layout_2][i]:
+                text_ += keymap[standard_key_layout][lang_layout_1][i]
                 not_found = False
                 break
         if not_found == True:
