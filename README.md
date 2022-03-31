@@ -5,7 +5,9 @@
 **GUI ready to use**  
 - [py  version 0.5](https://github.com/keegang6705/en-th-keyboard-translator/blob/main/python_ui/en-th_key_ui.py)(for 2.0)  
 - [exe version 0.5](https://github.com/keegang6705/en-th-keyboard-translator/blob/main/python_ui/key_trans_UI.exe)(for 2.0)  
-
+อัพเดทเป็น version 2.0   
+  
+[comment]: <> (รออัพเดท)  
 ---
 
 **มันคืออะไร อันนี้ก็ไม่แน่ใจเหมือนกัน**  
@@ -27,7 +29,7 @@
 ```bash
 pip install key-changer
 ```
-อัพเดทเป็น version 3.0 แล้ว 
+อัพเดทเป็น version ล่าสุดแล้ว 
   
 [comment]: <> (version 3.0)  
 ---
