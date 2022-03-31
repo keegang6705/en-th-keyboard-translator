@@ -5,7 +5,7 @@
 **GUI ready to use**  
 - [py  version 0.5](https://github.com/keegang6705/en-th-keyboard-translator/blob/main/python_ui/en-th_key_ui.py)(for 2.0)  
 - [exe version 0.5](https://github.com/keegang6705/en-th-keyboard-translator/blob/main/python_ui/key_trans_UI.exe)(for 2.0)  
-อัพเดทเป็น version 2.0   
+อัพเดทเป็น version 0.5 สำหรับ key-changer 2.0   
   
 [comment]: <> (รออัพเดท)  
 ---
