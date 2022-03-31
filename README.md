@@ -27,6 +27,7 @@
 ```bash
 pip install key-changer
 ```
+[comment]: <> (อัพเดทเป็น version 3.0 แล้ว)
 
 ---
 
