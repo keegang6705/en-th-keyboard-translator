@@ -8,6 +8,7 @@
 อัพเดทเป็น version 0.5 สำหรับ key-changer 2.0   
   
 [comment]: <> (รออัพเดท)  
+
 ---
 
 **มันคืออะไร อันนี้ก็ไม่แน่ใจเหมือนกัน**  
@@ -74,6 +75,23 @@ print(key_changer.switch("ฟะ ะ้ฟะ ทนทำืะม vp^jfuqoYhkd
 # output : at that moment, อยู่ดีๆนํ้าก็ไหล
 print(key_changer.switch("py'fusojk gdnv[=b[skp]t", QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT))
 # output : ยังดีหน่า เกือบชิบหายละ
+```
+
+```py
+# default -> keyboard=ANSI_KEYBOARD, en_layout=QWERTY_LAYOUT, th_layout=THAI_KEDMANEE_LAYOUT, not_know=None
+tl = key_changer.translate()
+
+print(tl.convert(",yodH0t.=hpkdsojvpot", EN2TH))
+# output : มันก็จะใช้ยากหน่อยนะ
+
+print(tl.convert("เนนกิัำ ไนสก", TH2EN))
+# output : goodbye wold
+
+print(tl.auto("vkdkL;yoouhihvo0y'g]p"))
+# output : อากาศวันนี้ร้อนจังเลย
+
+print(tl.switch("้ร l;ylfu"))
+# output : hi สวัสดี
 ```
 
 **ถ้าต้องการกำหนดว่าถ้าไม่รู้จักตัวอักขระนี้จะให้แทนที่ด้วยตัวอะไร**

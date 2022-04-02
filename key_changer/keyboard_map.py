@@ -13,6 +13,10 @@ defualt_lang2lang = EN2TH
 standard_key_layout_default = ANSI_KEYBOARD
 not_know_default = None
 
+defualt_en_layout = QWERTY_LAYOUT
+defualt_th_layout = THAI_KEDMANEE_LAYOUT
+defualt_keyboard = ANSI_KEYBOARD
+
 keymap = {
     "ANSI": {
         "QWERTY": [

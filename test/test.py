@@ -26,6 +26,16 @@ print(key_changer.switch("py'fusojk gdnv[=b[skp]t", QWERTY_LAYOUT, THAI_KEDMANEE
 # --------------------
 print("-" * 20)
 
+# keyboard=ANSI_KEYBOARD, en_layout=QWERTY_LAYOUT, th_layout=THAI_KEDMANEE_LAYOUT, not_know=None
+tl = key_changer.translate()
+print(tl.convert(",yodH0t.=hpkdsojvpot", EN2TH))
+print(tl.convert("เนนกิัำ ไนสก", TH2EN))
+print(tl.auto("vkdkL;yoouhihvo0y'g]p"))
+print(tl.switch("้ร l;ylfu"))
+
+# --------------------
+print("-" * 20)
+
 print(key_changer.convert("👍", QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT, not_know = "?"))
 
 # --------------------
