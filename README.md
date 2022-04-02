@@ -1,6 +1,6 @@
 ## Translate text from character keyboard layout.
 
-- **key-changer - version 3.0**  
+- **key-changer - version 3.1**  
 
 **GUI ready to use**  
 - [py  version 0.5](https://github.com/keegang6705/en-th-keyboard-translator/blob/main/python_ui/en-th_key_ui.py)(for 2.0)  
