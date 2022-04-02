@@ -43,7 +43,7 @@ pip install key-changer
 # แปลง
 key_changer.convert(text, lang_layout, to_lang_layout, standard_key_layout=, not_know=)
 # แปลง แต่จะเลือกให้เองว่าจากภาษาไหนไปภาษาไหน แต่ก็ต้องการค่าที่ใช้ระบุ keyboard layout จากผู้ใช้งาน
-key_changer.auto(text, en_layout, th_layout, standard_key_layout=, not_know=, default=)
+key_changer.auto(text, en_layout=, th_layout=, standard_key_layout=, not_know=, default=)
 # สลับ โดยข้อความที่ออกมาจะสลับเปลียนกันไปมา
 key_changer.switch(text, lang_layout_1, lang_layout_2, standard_key_layout=, not_know=)
 ```
