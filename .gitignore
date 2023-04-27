@@ -1,1 +1,8 @@
-/key_changer/__pycache__
+__pycache__
+/venv
+
+/build
+/dist
+/key_changer.egg-info
+/tmp
+/.vscode

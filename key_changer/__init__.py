@@ -1,6 +1,9 @@
-"""Translate text from character keyboard layout."""
-
 __name__ = "key_changer"
-__version__ = 3
+__version__ = "0.0.1"
 
-from .key_changer import translate, auto, switch, convert, EN2TH, TH2EN, ANSI_KEYBOARD, QWERTY_LAYOUT, THAI_KEDMANEE_LAYOUT, THAI_PATTACHOTE_LAYOUT
+__all__ = [
+    "KeyChanger", "KeyboardLayout", "LanguageLayout", "LayoutMap", "KeyboardsType", "LanguagesType"
+]
+
+from .translate import KeyChanger, KeyboardLayout, LanguageLayout
+from .layout_map import LayoutMap, KeyboardsType, LanguagesType
